@@ -12,11 +12,28 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Go code!
 */
+/*const express = require('express');
 
-const port = 1000;
+const actionsRouter = require("./routers/actionsRouter");
+const projectsRouter = require("./routers/projectsRouter");
+
+const server = express();
+
+server.use(express.json);
+
+server.use("/myapi/actions", actionsRouter);
+server.use("/myapi/projects", projectsRouter);
+
+server.use((err, req, res, next) =>{
+    res.status(500).json({message: "Internal server error."})
+})*/
 
 const server = require("./server");
+
+const port = process.env.PORT || 3000;
 
 server.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);
 })
+
+//module.exports = server;
