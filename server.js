@@ -7,10 +7,11 @@ const server = express();
 
 server.use(express.json);
 
-server.use(actionsRouter);
-server.use(projectsRouter);
+server.use("/myapi/actions", actionsRouter);
+server.use("/myapi/projects", projectsRouter);
 
 server.use((err, req, res, next) =>{
     res.status(500).json({message: "Internal server error."})
 })
 
+module.exports = server;
